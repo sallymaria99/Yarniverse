@@ -15,7 +15,8 @@ function Footer() {
             <Link to={"/projekt"}>Projekt</Link>
           </div>
         </div>
-        <h1 className="text-center text-1xl pb-2">Yarniverse</h1>
+        <h1 className="text-center text-xl pb-2">Yarniverse</h1>
+        <div className="text-sm text-center">Copyright © 2024</div>
       </footer>
     </>
   );
