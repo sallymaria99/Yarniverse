@@ -43,7 +43,7 @@ function HomePage() {
         En app där du samlar allt på ett ställe – dina mönster, projekt, dagbok
         och inspiration
       </div>
-      <div className="grid grid-cols-3 gap-8 pt-36 w-full max-w-4xl font-mono">
+      <div className="grid grid-cols-3 gap-8 pt-36 w-full max-w-4xl font-mono mb-10">
         <ImageCard
           title="TUTORIAL"
           image="https://images.unsplash.com/photo-1585829365343-ea8ed0b1cb5b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
