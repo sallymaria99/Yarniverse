@@ -1,23 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <>
       <header className="flex justify-between items-center px-4 bg-stone-500 h-12">
-        <h1>Yarniverse</h1>
-        <nav>
-          <ul className="flex flex-row gap-4">
+        <h1 className="flex-grow-0">
+          <NavLink to={"/"}>Yarniverse</NavLink>
+        </h1>
+        <nav className="flex-grow">
+          <ul className="flex flex-row gap-4 justify-end">
             <li>
-              <Link to={"/about"}>Om oss</Link>
+              <NavLink to={"/about"}>Om oss</NavLink>
             </li>
             <li>
-              <Link to={"/projekt"}>Projekt</Link>
+              <NavLink to={"/projekt"}>Projekt</NavLink>
             </li>
             <li>
-              <Link to={"/tutorials"}>Tutorials</Link>
+              <NavLink to={"/tutorials"}>Tutorials</NavLink>
             </li>
             <li>
-              <Link to={"/kontakt"}>Kontakt</Link>
+              <NavLink to={"/kontakt"}>Kontakt</NavLink>
             </li>
           </ul>
         </nav>

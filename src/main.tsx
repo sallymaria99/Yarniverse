@@ -11,7 +11,7 @@ import About from "./pages/about.tsx";
 import Contact from "./pages/contact.tsx";
 import Projekt from "./pages/projekt.tsx";
 import Tutorials from "./pages/tutorials.tsx";
-import Home from "./pages/home.tsx";
+import Home from "./pages/HomePage.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
