@@ -12,6 +12,7 @@ import Contact from "./pages/contact.tsx";
 import Projekt from "./pages/projekt.tsx";
 import Tutorials from "./pages/tutorials.tsx";
 import Home from "./pages/HomePage.tsx";
+import StartProjekt from "./pages/StartProjekt.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} />
       <Route path="/projekt" element={<Projekt />} />
       <Route path="/tutorials" element={<Tutorials />} />
+      <Route path="/StartProjekt" element={<StartProjekt />} />
     </Route>
   )
 );
