@@ -1,1 +1,10 @@
-API key YT: AIzaSyB8qp6_kG-iwuQxMMOltD3zkaZVNQhWZjU
+API key YT: AIzaSyAE9jxmi_dE07OQ-J8DYhKnt4tHRW7FarE
+
+chanel ID: UCjUBQShyF5jXt0I5L0otTMA
+
+
+
+GET https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2C%20contentDetails&channelId=UCyMA5d7hi_SLcsQX7iYAcOQ&key=[YOUR_API_KEY] HTTP/1.1
+
+Authorization: Bearer [YOUR_ACCESS_TOKEN]
+Accept: application/json

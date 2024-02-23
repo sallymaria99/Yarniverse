@@ -1,7 +1,9 @@
+import YoutubeVideo from "../YoutubeVideo";
+
 function Tutorials() {
   return (
     <div>
-      <div></div>
+      <YoutubeVideo videoId="cz3uaTLajS0" />
     </div>
   );
 }
