@@ -105,8 +105,18 @@ function StartProjekt() {
         <div className="bg-white px-8 pt-6 pb-8 mb-4 w-1/3">
           {/* Höger Innehåll */}
           <div>
+            <label htmlFor="started">Påbörjat</label>
+            <input
+              className="shadow appearance-none border rounded py-2 text-black leading-tight focus:outline-none focus:shadow-outline"
+              type="date"
+            />
+          </div>
+          <div>
             <label htmlFor="">Avslutat</label>
-            <input type="text" />
+            <input
+              className="shadow appearance-none border rounded py-2 text-black leading-tight focus:outline-none focus:shadow-outline"
+              type="date"
+            />
           </div>
         </div>
       </div>
