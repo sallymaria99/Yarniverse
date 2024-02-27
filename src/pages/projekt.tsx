@@ -1,12 +1,11 @@
 import { ArrowDownRightIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
-import { mockedProjekt } from "../projektData";
-import { useState } from "react";
+import { ProjektSchema } from "../projektData";
+import { useProjekt } from "../context/ProjektContext";
 
-function Projekt() {
-  const [projekt, setProjekt] = useState(mockedProjekt); // detta state ska vara i AppLayout, använd context för att få ut. I AppL kan de va "add" och kanske en "remove"
+function ProjectPage() {
   const navigate = useNavigate();
-
+  const { projekt } = useProjekt();
   const handleClick = () => {
     navigate("/StartProjekt");
   };
@@ -30,7 +29,16 @@ function Projekt() {
       </div>
 
       {projekt.length > 0 ? (
-        <div>Listan visas här</div>
+        <div>
+          <h2>Projektlista</h2>
+          <ul>
+            {projekt.map((projekt: ProjektSchema) => (
+              <li key={projekt.id}>
+                <p>{projekt.title}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : (
         <div>
           <p className="pt-12 text-center">
@@ -51,4 +59,4 @@ function Projekt() {
   );
 }
 
-export default Projekt;
+export default ProjectPage;
