@@ -14,7 +14,7 @@ const ImageCard: React.FC<ImageCard> = ({
   description,
   path,
 }) => {
-  const navigate = useNavigate(); // Är detta ett state? Använder för att kunna klicka på mina cards
+  const navigate = useNavigate(); // Använder för att kunna klicka på mina cards
   return (
     <div
       className="relative h-72 cursor-pointer"
@@ -45,6 +45,7 @@ function HomePage() {
       </div>
       <div className="grid grid-cols-3 gap-8 pt-36 w-full max-w-4xl font-mono mb-10">
         <ImageCard
+          key="1"
           title="TUTORIAL"
           image="https://images.unsplash.com/photo-1585829365343-ea8ed0b1cb5b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           description="Här kan du hitta en video, eller förklaring på hur du genomför olika sticktekniker eller maskor!"

@@ -14,8 +14,6 @@ interface VideoDetails {
 
 //Prop: videoId
 
-// Tror Teams har hängt sig :D eller? Haha ja allt stängdes ner! startar snart igen. Okej :D
-
 const YoutubeVideo: React.FC<YoutubeVideoProps> = ({ videoId }) => {
   // videoDetails: detaljer om videon. Null tills datan laddas
   const [videoDetails, setVideoDetails] = useState<VideoDetails>();

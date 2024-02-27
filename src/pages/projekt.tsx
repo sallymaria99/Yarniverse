@@ -1,7 +1,10 @@
 import { ArrowDownRightIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
+import { mockedProjekt } from "../projektData";
+import { useState } from "react";
 
 function Projekt() {
+  const [projekt, setProjekt] = useState(mockedProjekt); // detta state ska vara i AppLayout, använd context för att få ut. I AppL kan de va "add" och kanske en "remove"
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -26,12 +29,19 @@ function Projekt() {
         </button>
       </div>
 
-      <p className="pt-12 text-center">
-        Ser tomt ut här... testa att lägga till något
-      </p>
-      <div className="flex justify-center mt-10">
-        <ArrowDownRightIcon className="h-24" />
-      </div>
+      {projekt.length > 0 ? (
+        <div>Listan visas här</div>
+      ) : (
+        <div>
+          <p className="pt-12 text-center">
+            Ser tomt ut här... testa att lägga till något
+          </p>
+
+          <div className="flex justify-center mt-10">
+            <ArrowDownRightIcon className="h-24" />
+          </div>
+        </div>
+      )}
       <div className="fixed bottom-36 right-16">
         <button className="mt-48 ml-28 text-6xl" onClick={handleClick}>
           +
