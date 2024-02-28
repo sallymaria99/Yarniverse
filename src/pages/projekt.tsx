@@ -22,6 +22,9 @@ function ProjectPage() {
     <div className="relative">
       <div className="text-center text-3xl pt-8 pb-6">Projekt</div>
       <div className="flex justify-center items-center space-x-1 bg-gray-200 p-4 rounded-lg max-w-md mx-auto">
+        <button onClick={() => navigate("/projekt")}>
+          <span>Alla</span>
+        </button>
         <button
           onClick={() => navigate("/projekt/planerade")}
           className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
