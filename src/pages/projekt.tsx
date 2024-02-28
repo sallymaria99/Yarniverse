@@ -1,42 +1,64 @@
 import { ArrowDownRightIcon } from "@heroicons/react/24/solid";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ProjektSchema } from "../projektData";
 import { useProjekt } from "../context/ProjektContext";
 
 function ProjectPage() {
   const navigate = useNavigate();
   const { projekt } = useProjekt();
+  const { status } = useParams();
+  console.log("Nuvarande status:", status);
   const handleClick = () => {
     navigate("/StartProjekt");
   };
+
+  const filteredProjekt = status
+    ? projekt.filter(
+        (proj) => proj.status.toLowerCase() === status.toLowerCase()
+      )
+    : projekt;
 
   return (
     <div className="relative">
       <div className="text-center text-3xl pt-8 pb-6">Projekt</div>
       <div className="flex justify-center items-center space-x-1 bg-gray-200 p-4 rounded-lg max-w-md mx-auto">
-        <button className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100">
+        <button
+          onClick={() => navigate("/projekt/planerade")}
+          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
+        >
           <span>Planerade</span>
         </button>
-        <button className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100">
+        <button
+          onClick={() => navigate("/projekt/pågående")}
+          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
+        >
           <span>Pågående</span>
         </button>
-        <button className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100">
+        <button
+          onClick={() => navigate("/projekt/pausade")}
+          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
+        >
           <span>Pausade</span>
         </button>
-        <button className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100">
+        <button
+          onClick={() => navigate("/projekt/avslutade")}
+          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
+        >
           <span>Avslutade</span>
         </button>
       </div>
 
-      {projekt.length > 0 ? (
+      {filteredProjekt.length > 0 ? (
         <div>
           <h2>Projektlista</h2>
           <ul>
-            {projekt.map((proj: ProjektSchema) => (
+            {filteredProjekt.map((proj: ProjektSchema) => (
               <li key={proj.id}>
-                <p>
-                  {proj.title} - {proj.status}
-                </p>
+                <div>{proj.title}</div>
+                <div>{proj.size}</div>
+                <div>{proj.yarn}</div>
+                <div>{proj.to}</div>
+                <div>{proj.status}</div>
               </li>
             ))}
           </ul>

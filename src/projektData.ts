@@ -1,6 +1,6 @@
 export interface ProjektSchema {
   id: string;
-  status: string;
+  status: "planerade" | "pågående" | "pausade" | "avslutade";
   title: string;
   notes: string;
   startDate: Date;
@@ -10,13 +10,12 @@ export interface ProjektSchema {
   knittingNeedle?: number;
   name?: string;
   size: string;
-  //lägg till
 }
 
 export const mockedProjekt: ProjektSchema[] = [
   {
     id: "1",
-    status: "planned",
+    status: "pågående",
     title: "Percelain Sweater",
     notes: "bka",
     startDate: new Date("2024-10-12"),

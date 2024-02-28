@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ProjektSchema } from "../projektData";
 import { useNavigate } from "react-router-dom";
 import { useProjekt } from "../context/ProjektContext";
+import styled, { css } from "styled-components";
 
 function NewProjectPage() {
   const { addProjekt } = useProjekt();
@@ -10,175 +11,199 @@ function NewProjectPage() {
   const { register, handleSubmit, reset } = useForm<ProjektSchema>();
 
   const onSubmit: SubmitHandler<ProjektSchema> = (data) => {
-    console.log("Form data:", data); // Lägg till för att se form data
     const newProjekt: ProjektSchema = {
       ...data,
       knittingNeedle: Number(data.knittingNeedle),
-      startDate: new Date(data.startDate),
-      endDate: data.endDate ? new Date(data.endDate) : undefined,
     };
+    console.log(newProjekt);
     addProjekt(newProjekt);
     reset();
     navigate("/projekt");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center px-8">
-      <div className="text-2xl text-center pt-8 pb-6">Starta ett projekt</div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="bg-white rounded px-8 pt-6 pb-8 mb-4 w-1/3"
-      >
+    <Container>
+      <Title>Starta ett projekt</Title>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-between items-start w-full max-w-6x1">
-          {/* <FileUpload /> */}
-          <div className="">
+          <div>
             <h3 className="font-bold text-lg mb-5">Detaljer</h3>
-            {/*   //input för Till:, Storlek, Garn */}
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="to"
-              >
-                Till:
-              </label>
-              <input
+
+            <FormGroup>
+              <Label htmlFor="to">Till:</Label>
+
+              <Input
                 {...register("to")}
-                className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
                 id="to"
                 placeholder="PlaceHolder"
               />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="size"
-              >
-                Storlek:
-              </label>
-              <input
+            </FormGroup>
+
+            <FormGroup>
+              <Label htmlFor="size">Storlek:</Label>
+              <Input
                 {...register("size")}
-                className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
                 id="size"
                 placeholder="PlaceHolder"
               />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="yarn"
-              >
-                Garn:
-              </label>
-              <input
+            </FormGroup>
+
+            <FormGroup>
+              <Label htmlFor="yarn">Garn:</Label>
+              <Input
                 {...register("yarn")}
-                className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
                 id="yarn"
                 placeholder="PlaceHolder"
               />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="knittingNeedle"
-              >
-                Stickor:
-              </label>
-              <select
+            </FormGroup>
+
+            <FormGroup>
+              <Label htmlFor="knittingNeedle">Stickor:</Label>
+              <Select
                 {...register("knittingNeedle")}
-                className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 name=""
                 id="knittingNeedle"
               >
                 <option value="2">2</option>
                 <option value="2.5">2.5</option>
-              </select>
-            </div>
+              </Select>
+            </FormGroup>
           </div>
 
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="namne"
-            >
-              Namn:
-            </label>
-            <input
-              {...register("name")}
-              className="shadow appearance-none border rounded py-2 text-black leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="name"
-            />
-          </div>
+          <FormGroup>
+            <Label htmlFor="namne">Namn:</Label>
+            <Input {...register("name")} type="text" id="name" />
+          </FormGroup>
 
           <div className="bg-white px-8 pt-6 pb-8 mb-4">
-            <label
-              className=" text-gray-700 text-sm font-bold mb-2"
-              htmlFor="notes"
-            >
-              Anteckningar
-            </label>
-            <textarea
+            <Label htmlFor="notes">Anteckningar</Label>
+            <TextArea
               {...register("notes")}
-              className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               id="notes"
               cols={20}
               rows={5}
-            ></textarea>
+            ></TextArea>
           </div>
 
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="status"
-            >
-              Status:
-            </label>
-            <select
-              {...register("status")}
-              className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
-              id="status"
-            >
-              <option value="planned">Planerad</option>
-              <option value="current">Pågående</option>
-              <option value="paused">Pausad</option>
-              <option value="finished">Avslutad</option>
-            </select>
-          </div>
+          <FormGroup>
+            <Label htmlFor="status">Status:</Label>
+            <Select {...register("status")} id="status">
+              <option value="planerade">Planerad</option>
+              <option value="pågående">Pågående</option>
+              <option value="pausade">Pausad</option>
+              <option value="avslutade">Avslutad</option>
+            </Select>
+          </FormGroup>
 
           <div className="bg-white px-8 pt-6 pb-8 mb-4 w-1/3">
             {/* Höger Innehåll */}
             <div>
-              <label htmlFor="startDate">Påbörjat</label>
-              <input
-                {...register("startDate")}
-                className="shadow appearance-none border rounded py-2 text-black leading-tight focus:outline-none focus:shadow-outline"
+              <Label htmlFor="startDate">Påbörjat</Label>
+              <Input
+                {...register("startDate", { valueAsDate: true })}
                 type="date"
                 id="startDate"
               />
             </div>
             <div>
-              <label htmlFor="endDate">Avslutat</label>
-              <input
-                {...register("endDate")}
-                className="shadow appearance-none border rounded py-2 text-black leading-tight focus:outline-none focus:shadow-outline"
+              <Label htmlFor="endDate">Avslutat</Label>
+              <Input
+                {...register("endDate", { valueAsDate: true })}
                 type="date"
                 id="endDate"
               />
             </div>
           </div>
         </div>
-        <button
-          type="submit"
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Spara!
-        </button>
-      </form>
-    </div>
+        <Button type="submit">Spara!</Button>
+      </Form>
+    </Container>
   );
 }
 
 export default NewProjectPage;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+`;
+
+const Title = styled.div`
+  font-size: 1.5rem;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+`;
+
+const Form = styled.form`
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: 1.5rem 2rem 2rem 2rem 2rem;
+  margin-bottom: 1rem;
+  width: 33.333%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const Label = styled.label`
+  display: block;
+  color: #4a5568;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
+`;
+
+const Button = styled.button`
+  background-color: #4299e1;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #2b6cb0;
+  }
+`;
+
+const baseInputStyles = css`
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  width: 100%;
+  appearance: none;
+  line-height: 1.25;
+  color: black;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+`;
+
+const Input = styled.input`
+  ${baseInputStyles}
+`;
+
+const Select = styled.select`
+  ${baseInputStyles}
+`;
+
+const TextArea = styled.textarea`
+  ${baseInputStyles}
+`;

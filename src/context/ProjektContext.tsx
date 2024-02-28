@@ -10,7 +10,10 @@ interface ProjektProviderProps {
   children: ReactNode;
 }
 
-const ProjektContext = createContext<ProjektContextType | undefined>(undefined);
+const ProjektContext = createContext<ProjektContextType>({
+  projekt: [],
+  addProjekt: () => {},
+});
 
 export const ProjektProvider: React.FC<ProjektProviderProps> = ({
   children,
@@ -31,10 +34,4 @@ export const ProjektProvider: React.FC<ProjektProviderProps> = ({
   );
 };
 
-export const useProjekt = () => {
-  const context = useContext(ProjektContext);
-  if (context === undefined) {
-    throw new Error("useProjekt must be used with a projektprovider");
-  }
-  return context;
-};
+export const useProjekt = () => useContext(ProjektContext);
