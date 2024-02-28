@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { ProjektSchema, mockedProjekt } from "../projektData";
+import { ProjektSchema } from "../projektData";
 
 interface ProjektContextType {
   projekt: ProjektSchema[];
@@ -10,22 +10,18 @@ interface ProjektProviderProps {
   children: ReactNode;
 }
 
-const ProjektContext = createContext<ProjektContextType>({
-  projekt: [],
-  addProjekt: () => {},
-});
+const ProjektContext = createContext<ProjektContextType | undefined>(undefined);
 
-export const ProjektProvider = ({ children }: ProjektProviderProps) => {
-  const [projekt, setProjekt] = useState<ProjektSchema[]>();
+export const ProjektProvider: React.FC<ProjektProviderProps> = ({
+  children,
+}) => {
+  const [projekt, setProjekt] = useState<ProjektSchema[]>([]);
 
   const addProjekt = (newProjekt: ProjektSchema) => {
-    setProjekt((currentProjekt: ProjektSchema[]) => {
-      const updatedProjekt = [
-        ...currentProjekt,
-        { ...newProjekt, id: String(currentProjekt?.length + 1) },
-        return updatedProjekt;
-      ];
-    });
+    setProjekt((currentProjekt) => [
+      ...currentProjekt,
+      { ...newProjekt, id: String(currentProjekt?.length + 1) },
+    ]);
   };
 
   return (
@@ -35,4 +31,10 @@ export const ProjektProvider = ({ children }: ProjektProviderProps) => {
   );
 };
 
-export const useProjekt = () => useContext(ProjektContext);
+export const useProjekt = () => {
+  const context = useContext(ProjektContext);
+  if (context === undefined) {
+    throw new Error("useProjekt must be used with a projektprovider");
+  }
+  return context;
+};

@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 
 function Header() {
   return (
@@ -8,22 +7,22 @@ function Header() {
         <h1 className="flex-grow-0">
           <NavLink to={"/"}>Yarniverse</NavLink>
         </h1>
-        <Navigation>
-          <NavigationList>
+        <nav>
+          <ul>
             <li>
-              <StyledNavLink to={"/about"}>Om oss</StyledNavLink>
+              <NavLink to={"/about"}>Om oss</NavLink>
             </li>
             <li>
-              <StyledNavLink to={"/projekt"}>Projekt</StyledNavLink>
+              <NavLink to={"/projekt"}>Projekt</NavLink>
             </li>
             <li>
-              <StyledNavLink to={"/tutorials"}>Tutorials</StyledNavLink>
+              <NavLink to={"/tutorials"}>Tutorials</NavLink>
             </li>
             <li>
-              <StyledNavLink to={"/contact"}>Kontakt</StyledNavLink>
+              <NavLink to={"/contact"}>Kontakt</NavLink>
             </li>
-          </NavigationList>
-        </Navigation>
+          </ul>
+        </nav>
       </header>
     </>
   );
