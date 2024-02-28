@@ -32,9 +32,11 @@ function ProjectPage() {
         <div>
           <h2>Projektlista</h2>
           <ul>
-            {projekt.map((projekt: ProjektSchema) => (
-              <li key={projekt.id}>
-                <p>{projekt.title}</p>
+            {projekt.map((proj: ProjektSchema) => (
+              <li key={proj.id}>
+                <p>
+                  {proj.title} - {proj.status}
+                </p>
               </li>
             ))}
           </ul>

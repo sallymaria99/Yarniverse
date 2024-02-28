@@ -3,14 +3,6 @@ import { ProjektSchema } from "../projektData";
 import { useNavigate } from "react-router-dom";
 import { useProjekt } from "../context/ProjektContext";
 
-/* interface FormData {
-  id: string;
-  title: string;
-  notes: string;
-  startDate: string;
-  endDate?: string;
-} */
-
 function NewProjectPage() {
   const { addProjekt } = useProjekt();
   const navigate = useNavigate();
@@ -18,18 +10,12 @@ function NewProjectPage() {
   const { register, handleSubmit, reset } = useForm<ProjektSchema>();
 
   const onSubmit: SubmitHandler<ProjektSchema> = (data) => {
+    console.log("Form data:", data); // Lägg till för att se form data
     const newProjekt: ProjektSchema = {
-      id: data.id,
-      status: "planned",
-      title: data.title,
-      notes: data.title,
+      ...data,
+      knittingNeedle: Number(data.knittingNeedle),
       startDate: new Date(data.startDate),
       endDate: data.endDate ? new Date(data.endDate) : undefined,
-      to: data.to,
-      yarn: data.yarn,
-      knittingNeedle: data.knittingNeedle,
-      name: data.name,
-      size: data.size,
     };
     addProjekt(newProjekt);
     reset();
@@ -141,6 +127,25 @@ function NewProjectPage() {
               cols={20}
               rows={5}
             ></textarea>
+          </div>
+
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="status"
+            >
+              Status:
+            </label>
+            <select
+              {...register("status")}
+              className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              id="status"
+            >
+              <option value="planned">Planerad</option>
+              <option value="current">Pågående</option>
+              <option value="paused">Pausad</option>
+              <option value="finished">Avslutad</option>
+            </select>
           </div>
 
           <div className="bg-white px-8 pt-6 pb-8 mb-4 w-1/3">

@@ -1,6 +1,6 @@
 export interface ProjektSchema {
   id: string;
-  status: "planned" | "current" | "paused" | "finished";
+  status: string;
   title: string;
   notes: string;
   startDate: Date;
