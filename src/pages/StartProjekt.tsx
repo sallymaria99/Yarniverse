@@ -96,8 +96,8 @@ function StartProjekt() {
               className="shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               name=""
               id=""
-              cols="20"
-              rows="5"
+              cols={20}
+              rows={5}
             ></textarea>
           </div>
         </form>

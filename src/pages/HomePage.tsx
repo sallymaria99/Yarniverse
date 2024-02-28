@@ -14,7 +14,8 @@ const ImageCard: React.FC<ImageCard> = ({
   description,
   path,
 }) => {
-  const navigate = useNavigate(); // Är detta ett state? Använder för att kunna klicka på mina cards
+  const navigate = useNavigate();
+
   return (
     <div
       className="relative h-72 cursor-pointer"

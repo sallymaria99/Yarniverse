@@ -1,30 +1,62 @@
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 function Header() {
   return (
     <>
-      <header className="flex justify-between items-center px-4 bg-stone-500 h-12">
+      <HeaderContainer>
         <h1 className="flex-grow-0">
           <NavLink to={"/"}>Yarniverse</NavLink>
         </h1>
-        <nav className="flex-grow">
-          <ul className="flex flex-row gap-4 justify-end">
+        <Navigation>
+          <NavigationList>
             <li>
-              <NavLink to={"/about"}>Om oss</NavLink>
+              <StyledNavLink to={"/about"}>Om oss</StyledNavLink>
             </li>
             <li>
-              <NavLink to={"/projekt"}>Projekt</NavLink>
+              <StyledNavLink to={"/projekt"}>Projekt</StyledNavLink>
             </li>
             <li>
-              <NavLink to={"/tutorials"}>Tutorials</NavLink>
+              <StyledNavLink to={"/tutorials"}>Tutorials</StyledNavLink>
             </li>
             <li>
-              <NavLink to={"/contact"}>Kontakt</NavLink>
+              <StyledNavLink to={"/contact"}>Kontakt</StyledNavLink>
             </li>
-          </ul>
-        </nav>
-      </header>
+          </NavigationList>
+        </Navigation>
+      </HeaderContainer>
     </>
   );
 }
 export default Header;
+
+const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #a0aec0;
+  height: 3rem;
+`;
+
+const Navigation = styled.nav`
+  flex-grow: 1;
+`;
+
+const NavigationList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: flex-end;
+  list-style: none;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+
+  &.active {
+    border-bottom: 2px solid white;
+  }
+`;
