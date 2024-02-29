@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export interface ImageCard {
   title: string;
@@ -16,34 +17,25 @@ const ImageCard: React.FC<ImageCard> = ({
 }) => {
   const navigate = useNavigate(); // Använder för att kunna klicka på mina cards
   return (
-    <div
-      className="relative h-72 cursor-pointer"
-      onClick={() => navigate(path)}
-    >
-      <img src={image} alt={title} className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 hover:opacity-100 flex justify-center items-center transition-opacity duration-300">
-        <div className="text-center px-4">
-          {title && (
-            <h4 className="text-white text-lg font-bold mb-2">{title}</h4>
-          )}
-          {description && <p className="text-white">{description}</p>}
-        </div>
-      </div>
-    </div>
+    <ImageCardContainer onClick={() => navigate(path)}>
+      <CardImage src={image} alt={title} />
+      <Overlay className="overlay">
+        {title && <Title>{title}</Title>}
+        {description && <Description>{description}</Description>}
+      </Overlay>
+    </ImageCardContainer>
   );
 };
 
 function HomePage() {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="text-center font-mono text-4xl pt-16">
-        Yarniverse - ditt egna skaparuniversum
-      </div>
-      <div className="pt-12 font-mono text-center">
+    <HomePageContainer>
+      <MainTitle>Yarniverse - ditt egna skaparuniversum</MainTitle>
+      <Subtitle>
         En app där du samlar allt på ett ställe – dina mönster, projekt, dagbok
         och inspiration
-      </div>
-      <div className="grid grid-cols-3 gap-8 pt-36 w-full max-w-4xl font-mono mb-10">
+      </Subtitle>
+      <CardGrid>
         <ImageCard
           key="1"
           title="TUTORIAL"
@@ -63,8 +55,81 @@ function HomePage() {
           description=""
           path=""
         />
-      </div>
-    </div>
+      </CardGrid>
+    </HomePageContainer>
   );
 }
 export default HomePage;
+
+const ImageCardContainer = styled.div`
+  position: relative;
+  height: 18rem;
+  cursor: pointer;
+  &:hover .overlay {
+    opacity: 1;
+  }
+`;
+
+const CardImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 300ms ease-in-out;
+  text-align: center;
+  padding: 1rem;
+`;
+
+const Title = styled.h4`
+  color: #c792df;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+`;
+
+const Description = styled.p`
+  color: #c792df;
+`;
+
+const HomePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff /* #d9dcd6 */;
+`;
+
+const MainTitle = styled.div`
+  text-align: center;
+  font-family: "Mono", sans-serif;
+  font-size: 2.5rem;
+  padding-top: 4rem;
+  color: #243d24;
+`;
+
+const Subtitle = styled.div`
+  padding-top: 3rem;
+  font-family: "Mono", sans-serif;
+  text-align: center;
+  color: #243d24;
+`;
+
+const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 9rem;
+  width: 100%;
+  max-width: 64rem;
+  font-family: "Mono", sans-serif;
+  margin-bottom: 2.5rem;
+`;

@@ -12,6 +12,7 @@ export interface ProjektSchema {
   size: string;
 }
 
+//Behöver denna vara kvar?
 export const mockedProjekt: ProjektSchema[] = [
   {
     id: "1",
@@ -27,5 +28,3 @@ export const mockedProjekt: ProjektSchema[] = [
     size: "2xl",
   },
 ];
-
-//FormHook

@@ -1,25 +1,65 @@
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 function Footer() {
   return (
     <>
-      <footer className="bg-stone-500 font-mono">
-        <div className="text-sm">
+      <StyledFooter>
+        <FooterNav>
           <div>
-            <Link to={"/contact"}>Kontakt</Link>
+            <FooterLink to={"/contact"}>Kontakt</FooterLink>
           </div>
           <div>
-            <Link to={"/about"}>Om oss</Link>
+            <FooterLink to={"/about"}>Om oss</FooterLink>
           </div>
           <div>
-            <Link to={"/projekt"}>Projekt</Link>
+            <FooterLink to={"/projekt"}>Projekt</FooterLink>
           </div>
-        </div>
-        <h1 className="text-center text-xl pb-2">Yarniverse</h1>
-        <div className="text-sm text-center">Copyright © 2024</div>
-      </footer>
+        </FooterNav>
+        <FooterTitle>Yarniverse</FooterTitle>
+        <Copyright>Copyright © 2024</Copyright>
+      </StyledFooter>
     </>
   );
 }
 
 export default Footer;
+
+const StyledFooter = styled.footer`
+  background-color: white;
+  font-family: "mono", sans-serif;
+  display: flex;
+  flex-direction: row;
+`;
+
+const FooterNav = styled.div`
+  font-size: 0.875rem;
+  padding: 1rem 0;
+`;
+
+const FooterLink = styled(Link)`
+  display: block;
+  color: #fff;
+  padding: 0.5rem 0;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const FooterTitle = styled.h1`
+  text-align: center;
+  font-size: 1.25rem;
+  padding-bottom: 0.5rem;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Copyright = styled.div`
+  font-size: 0.875;
+  text-align: center;
+  padding: 0.5rem 0;
+  align-items: center;
+  justify-content: center;
+`;

@@ -2,6 +2,7 @@ import { ArrowDownRightIcon } from "@heroicons/react/24/solid";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProjektSchema } from "../projektData";
 import { useProjekt } from "../context/ProjektContext";
+import styled from "styled-components";
 
 function ProjectPage() {
   const navigate = useNavigate();
@@ -19,37 +20,25 @@ function ProjectPage() {
     : projekt;
 
   return (
-    <div className="relative">
-      <div className="text-center text-3xl pt-8 pb-6">Projekt</div>
-      <div className="flex justify-center items-center space-x-1 bg-gray-200 p-4 rounded-lg max-w-md mx-auto">
-        <button onClick={() => navigate("/projekt")}>
+    <ProjectContainer>
+      <Title>Projekt</Title>
+      <ButtonContainer>
+        <StyledButton onClick={() => navigate("/projekt")}>
           <span>Alla</span>
-        </button>
-        <button
-          onClick={() => navigate("/projekt/planerade")}
-          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
-        >
+        </StyledButton>
+        <StyledButton onClick={() => navigate("/projekt/planerade")}>
           <span>Planerade</span>
-        </button>
-        <button
-          onClick={() => navigate("/projekt/pågående")}
-          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
-        >
+        </StyledButton>
+        <StyledButton onClick={() => navigate("/projekt/pågående")}>
           <span>Pågående</span>
-        </button>
-        <button
-          onClick={() => navigate("/projekt/pausade")}
-          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
-        >
+        </StyledButton>
+        <StyledButton onClick={() => navigate("/projekt/pausade")}>
           <span>Pausade</span>
-        </button>
-        <button
-          onClick={() => navigate("/projekt/avslutade")}
-          className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:bg-gray-100"
-        >
+        </StyledButton>
+        <StyledButton onClick={() => navigate("/projekt/avslutade")}>
           <span>Avslutade</span>
-        </button>
-      </div>
+        </StyledButton>
+      </ButtonContainer>
 
       {filteredProjekt.length > 0 ? (
         <div>
@@ -82,8 +71,42 @@ function ProjectPage() {
           +
         </button>
       </div>
-    </div>
+    </ProjectContainer>
   );
 }
 
 export default ProjectPage;
+
+const ProjectContainer = styled.div`
+  position: relative;
+`;
+
+const Title = styled.div`
+  text-align: center;
+  font-size: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 32rem;
+  margin: auto;
+`;
+
+const StyledButton = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  &:hover {
+    background-color: #f7fafc;
+  }
+`;
