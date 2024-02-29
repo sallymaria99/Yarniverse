@@ -7,22 +7,23 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import About from "./pages/about.tsx";
-import Contact from "./pages/contact.tsx";
-import Projekt from "./pages/projekt.tsx";
-import Tutorials from "./pages/tutorials.tsx";
+import ProjectPage from "./pages/ProjektPage.tsx";
+import Tutorials from "./pages/TutorialsPage.tsx";
 import Home from "./pages/HomePage.tsx";
-import StartProjekt from "./pages/StartProjekt.tsx";
+import NewProjectPage from "./pages/StartProjekt.tsx";
+import AboutPage from "./pages/AboutPage.tsx";
+import DiaryPage from "./pages/DiaryPage.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />}>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/projekt" element={<Projekt />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/dagbok" element={<DiaryPage />} />
+      <Route path="/projekt" element={<ProjectPage />} />
+      <Route path="/projekt/:status" element={<ProjectPage />} />
       <Route path="/tutorials" element={<Tutorials />} />
-      <Route path="/StartProjekt" element={<StartProjekt />} />
+      <Route path="/StartProjekt" element={<NewProjectPage />} />
     </Route>
   )
 );
