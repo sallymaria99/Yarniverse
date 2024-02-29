@@ -119,13 +119,13 @@ const ProjectCard = styled.li`
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  min-width: 500px;
   display: flex;
   flex-direction: column;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: black;
   margin-bottom: 0.5rem;
 `;
