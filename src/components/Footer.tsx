@@ -7,8 +7,8 @@ function Footer() {
       <StyledFooter>
         <FooterNavContainer>
           <FooterNav>
-            <FooterLink to={"/contact"}>Kontakt</FooterLink>
-            <FooterLink to={"/about"}>Om oss</FooterLink>
+            <FooterLink to={"/about"}>Kontakt</FooterLink>
+            <FooterLink to={"/tutorials"}>Tutorials</FooterLink>
             <FooterLink to={"/projekt"}>Projekt</FooterLink>
           </FooterNav>
         </FooterNavContainer>
@@ -53,7 +53,7 @@ const FooterNav = styled.div`
 `;
 
 const FooterLink = styled(Link)`
-  color: #fff;
+  color: black;
   padding: 0.25rem 0;
   text-decoration: none;
 
@@ -76,9 +76,11 @@ const FooterCenter = styled.div`
 const FooterTitle = styled.h1`
   font-size: 1.25rem;
   margin: 0.5rem 0;
+  color: #235347;
 `;
 
 const Copyright = styled.div`
   font-size: 0.875;
   padding: 0.5rem 0;
+  color: #235347;
 `;

@@ -25,10 +25,8 @@ function NewProjectPage() {
     <Container>
       <Title>Starta ett projekt</Title>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex justify-between items-start w-full max-w-6x1">
-          <div>
-            <h3 className="font-bold text-lg mb-5">Detaljer</h3>
-
+        <FormRow>
+          <Column>
             <FormGroup>
               <Label htmlFor="to">Till:</Label>
 
@@ -71,53 +69,56 @@ function NewProjectPage() {
                 <option value="2.5">2.5</option>
               </Select>
             </FormGroup>
-          </div>
+          </Column>
+          <Column>
+            <FormGroup>
+              <Label htmlFor="namne">Namn:</Label>
+              <Input {...register("name")} type="text" id="name" />
+            </FormGroup>
 
-          <FormGroup>
-            <Label htmlFor="namne">Namn:</Label>
-            <Input {...register("name")} type="text" id="name" />
-          </FormGroup>
-
-          <div className="bg-white px-8 pt-6 pb-8 mb-4">
-            <Label htmlFor="notes">Anteckningar</Label>
-            <TextArea
-              {...register("notes")}
-              id="notes"
-              cols={20}
-              rows={5}
-            ></TextArea>
-          </div>
-
-          <FormGroup>
-            <Label htmlFor="status">Status:</Label>
-            <Select {...register("status")} id="status">
-              <option value="planerade">Planerad</option>
-              <option value="pågående">Pågående</option>
-              <option value="pausade">Pausad</option>
-              <option value="avslutade">Avslutad</option>
-            </Select>
-          </FormGroup>
-
-          <div className="bg-white px-8 pt-6 pb-8 mb-4 w-1/3">
-            {/* Höger Innehåll */}
-            <div>
-              <Label htmlFor="startDate">Påbörjat</Label>
-              <Input
-                {...register("startDate", { valueAsDate: true })}
-                type="date"
-                id="startDate"
-              />
+            <div className="bg-white px-8 pt-6 pb-8 mb-4">
+              <Label htmlFor="notes">Anteckningar</Label>
+              <TextArea
+                {...register("notes")}
+                id="notes"
+                cols={28}
+                rows={5}
+              ></TextArea>
             </div>
-            <div>
-              <Label htmlFor="endDate">Avslutat</Label>
-              <Input
-                {...register("endDate", { valueAsDate: true })}
-                type="date"
-                id="endDate"
-              />
-            </div>
-          </div>
-        </div>
+          </Column>
+          <Column>
+            <FormGroup>
+              <Label htmlFor="status">Status:</Label>
+              <Select {...register("status")} id="status">
+                <option value="planerade">Planerad</option>
+                <option value="pågående">Pågående</option>
+                <option value="pausade">Pausad</option>
+                <option value="avslutade">Avslutad</option>
+              </Select>
+            </FormGroup>
+            <FormGroup>
+              <div className="bg-white px-8 pt-6 pb-8 mb-4 w-1/3">
+                {/* Höger Innehåll */}
+                <div>
+                  <Label htmlFor="startDate">Påbörjat</Label>
+                  <DateInput
+                    {...register("startDate", { valueAsDate: true })}
+                    type="date"
+                    id="startDate"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="endDate">Avslutat</Label>
+                  <DateInput
+                    {...register("endDate", { valueAsDate: true })}
+                    type="date"
+                    id="endDate"
+                  />
+                </div>
+              </div>
+            </FormGroup>
+          </Column>
+        </FormRow>
         <Button type="submit">Spara!</Button>
       </Form>
     </Container>
@@ -135,6 +136,38 @@ const Container = styled.div`
   padding-right: 2rem;
 `;
 
+const FormRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1024px;
+  margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+
+  &:first-child {
+    flex: 1;
+  }
+
+  &:nth-child(2) {
+    flex: 1;
+    margin: 0 20px;
+  }
+
+  &:last-child {
+    flex: 1;
+  }
+`;
+
 const Title = styled.div`
   font-size: 1.5rem;
   text-align: center;
@@ -147,7 +180,7 @@ const Form = styled.form`
   border-radius: 0.25rem;
   padding: 1.5rem 2rem 2rem 2rem 2rem;
   margin-bottom: 1rem;
-  width: 33.333%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 `;
@@ -182,7 +215,7 @@ const Button = styled.button`
 
 const baseInputStyles = css`
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #bacee8;
   border-radius: 0.25rem;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   width: 100%;
@@ -198,12 +231,28 @@ const baseInputStyles = css`
 
 const Input = styled.input`
   ${baseInputStyles}
+  height: 40px;
 `;
 
 const Select = styled.select`
   ${baseInputStyles}
+  cursor: pointer;
+  position: relative;
 `;
 
 const TextArea = styled.textarea`
   ${baseInputStyles}
+`;
+
+const DateInput = styled.input`
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #bacee8;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-bottom: 28px;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  &:before {
+    display: inline-block;
+    margin-right: 10px;
+  }
 `;

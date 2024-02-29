@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ProjektSchema } from "../projektData";
 import { useProjekt } from "../context/ProjektContext";
 import styled from "styled-components";
+import { Title } from "../styles/SharedStyles";
 
 function ProjectPage() {
   const navigate = useNavigate();
@@ -81,19 +82,12 @@ const ProjectContainer = styled.div`
   position: relative;
 `;
 
-const Title = styled.div`
-  text-align: center;
-  font-size: 3rem;
-  padding-top: 2rem;
-  padding-bottom: 1.5rem;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
-  background-color: #e2e8f0;
+  gap: 0.5rem;
+  background-color: #b8b3b9;
   padding: 1rem;
   border-radius: 0.5rem;
   max-width: 32rem;
@@ -105,8 +99,9 @@ const StyledButton = styled.button`
   flex-direction: column;
   align-items: center;
   padding: 0.6rem;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0.5px 2px #6d6878;
+  border-radius: 0.8rem;
   &:hover {
-    background-color: #f7fafc;
+    background-color: #6d6878;
   }
 `;

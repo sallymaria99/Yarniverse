@@ -1,6 +1,6 @@
 import RandomQuote from "../components/QuoteGarden";
 
-function About() {
+function AboutPage() {
   return (
     <div>
       <p>
@@ -13,4 +13,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutPage;

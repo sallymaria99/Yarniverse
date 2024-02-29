@@ -1,19 +1,17 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import yarnImg from "../assets/yarnImg.png";
 
 function Header() {
   return (
     <>
       <StyledHeader>
         <Title>
-          <img src="/assets/yarnImg.png" alt="" />
+          <LogoImage src={yarnImg} alt="Yarn" style={{ marginRight: "10px" }} />
           <NavLink to={"/"}>Yarniverse</NavLink>
         </Title>
         <Navigation>
           <NavList>
-            <NavItem>
-              <StyledNavLink to={"/about"}>Om oss</StyledNavLink>
-            </NavItem>
             <NavItem>
               <StyledNavLink to={"/projekt"}>Projekt</StyledNavLink>
             </NavItem>
@@ -21,7 +19,10 @@ function Header() {
               <StyledNavLink to={"/tutorials"}>Tutorials</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to={"/contact"}>Kontakt</StyledNavLink>
+              <StyledNavLink to={"/dagbok"}>Dagbok</StyledNavLink>
+            </NavItem>
+            <NavItem>
+              <StyledNavLink to={"/about"}>Kontakt</StyledNavLink>
             </NavItem>
           </NavList>
         </Navigation>
@@ -37,10 +38,20 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 1rem;
   height: 3rem;
+  font-family: "Quicksand", sans-serif;
 `;
 
 const Title = styled.h1`
   flex-grow: 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  margin-right: 10px;
+  font-size: 1.5rem;
+  margin-top: 12px;
+  margin-right: 12px;
+  color: #235347;
+  font-weight: 700;
 `;
 
 const Navigation = styled.nav`
@@ -59,6 +70,7 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   position: relative;
   font-size: 1.2rem;
+  font-weight: 500;
 
   a {
     color: #243d24;
@@ -88,4 +100,10 @@ const StyledNavLink = styled(NavLink)`
   &.active {
     font-weight: 1000;
   }
+`;
+
+const LogoImage = styled.img`
+  height: 36px;
+  width: auto;
+  margin-right: 10px;
 `;

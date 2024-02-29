@@ -24,7 +24,7 @@ const StyledAppLayout = styled.main`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Mono", sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: #16425b;
 `;
 

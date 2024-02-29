@@ -48,7 +48,6 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({ videoId }) => {
   return (
     <div>
       <h2>{videoDetails.title}</h2>
-      <p>Video ID: {videoId}</p>
       <iframe src={`https://www.youtube.com/embed/${videoId}`}></iframe>
     </div>
   );

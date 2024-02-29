@@ -50,9 +50,9 @@ function HomePage() {
           path="/projekt"
         />
         <ImageCard
-          title=""
+          title="STICKDAGBOK"
           image="https://images.unsplash.com/photo-1597736091383-2976f665d932?q=80&w=1746&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          description=""
+          description="Denna sida är under konstruktion!"
           path=""
         />
       </CardGrid>
@@ -64,6 +64,7 @@ export default HomePage;
 const ImageCardContainer = styled.div`
   position: relative;
   height: 18rem;
+  margin-bottom: 20px;
   cursor: pointer;
   &:hover .overlay {
     opacity: 1;
@@ -111,19 +112,19 @@ const HomePageContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #ffffff /* #d9dcd6 */;
+  font-family: "Quicksand", sans-serif;
 `;
 
 const MainTitle = styled.div`
   text-align: center;
-  font-family: "Mono", sans-serif;
   font-size: 2.5rem;
-  padding-top: 4rem;
+  font-weight: 550;
+  padding-top: 3rem;
   color: #243d24;
 `;
 
 const Subtitle = styled.div`
-  padding-top: 3rem;
-  font-family: "Mono", sans-serif;
+  padding-top: 2.5rem;
   text-align: center;
   color: #243d24;
 `;
@@ -132,9 +133,8 @@ const CardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  padding-top: 9rem;
+  padding-top: 7rem;
   width: 100%;
   max-width: 64rem;
-  font-family: "Mono", sans-serif;
   margin-bottom: 2.5rem;
 `;
