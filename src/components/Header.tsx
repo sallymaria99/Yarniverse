@@ -11,36 +11,16 @@ function Header() {
         <Navigation>
           <NavList>
             <NavItem>
-              <NavLink
-                to={"/about"}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Om oss
-              </NavLink>
+              <StyledNavLink to={"/about"}>Om oss</StyledNavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                to={"/projekt"}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Projekt
-              </NavLink>
+              <StyledNavLink to={"/projekt"}>Projekt</StyledNavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                to={"/tutorials"}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Tutorials
-              </NavLink>
+              <StyledNavLink to={"/tutorials"}>Tutorials</StyledNavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                to={"/contact"}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Kontakt
-              </NavLink>
+              <StyledNavLink to={"/contact"}>Kontakt</StyledNavLink>
             </NavItem>
           </NavList>
         </Navigation>
@@ -69,24 +49,42 @@ const Navigation = styled.nav`
 const NavList = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: flex-end;
+  margin-top: 12px;
+  margin-right: 12px;
 `;
 
 const NavItem = styled.li`
   position: relative;
+  font-size: 1.2rem;
 
   a {
-    color: #333;
+    color: #243d24;
     text-decoration: none;
-    padding: 0%.5rem 0;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease-in-out;
 
-    a:hover {
-      border-bottom: 2px solid #333;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: #7f9093;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+      left: 0;
     }
   }
 `;
 
-const activeStyle = {
-  borderBottom: "1.5px solid #333",
-};
+const StyledNavLink = styled(NavLink)`
+  &.active {
+    font-weight: 1000;
+  }
+`;

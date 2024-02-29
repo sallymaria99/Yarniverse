@@ -1,4 +1,4 @@
-import YoutubeVideo from "../YoutubeVideo";
+import YoutubeVideo from "../components/YoutubeVideo";
 
 function Tutorials() {
   return (

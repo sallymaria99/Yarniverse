@@ -1,4 +1,4 @@
-import RandomQuote from "../QuoteGarden";
+import RandomQuote from "../components/QuoteGarden";
 
 function About() {
   return (
