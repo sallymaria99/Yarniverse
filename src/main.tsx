@@ -7,10 +7,10 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import About from "./pages/about.tsx";
-import Contact from "./pages/contact.tsx";
-import ProjectPage from "./pages/projekt.tsx";
-import Tutorials from "./pages/tutorials.tsx";
+import About from "./pages/AboutPage.tsx";
+import Contact from "./NOT ACTIVE/contact.tsx";
+import ProjectPage from "./pages/ProjektPage.tsx";
+import Tutorials from "./pages/TutorialsPage.tsx";
 import Home from "./pages/HomePage.tsx";
 import NewProjectPage from "./pages/StartProjekt.tsx";
 

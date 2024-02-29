@@ -26,7 +26,7 @@ function Footer() {
 export default Footer;
 
 const StyledFooter = styled.footer`
-  background-color: white;
+  background-color: #7f9093 /* #a8a29e */;
   font-family: "mono", sans-serif;
   display: flex;
   flex-direction: row;

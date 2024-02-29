@@ -90,14 +90,14 @@ const Overlay = styled.div`
 `;
 
 const Title = styled.h4`
-  color: #c792df;
+  color: #b8b3b9;
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 `;
 
 const Description = styled.p`
-  color: #c792df;
+  color: #b8b3b9;
 `;
 
 const HomePageContainer = styled.div`

@@ -55,7 +55,6 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #a8a29e;
   height: 3rem;
 `;
 
