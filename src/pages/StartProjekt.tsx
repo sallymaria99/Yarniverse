@@ -183,6 +183,7 @@ const Form = styled.form`
   width: 80%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const FormGroup = styled.div`
@@ -199,12 +200,13 @@ const Label = styled.label`
 `;
 
 const Button = styled.button`
-  background-color: #4299e1;
+  background-color: #243d24;
   color: white;
   font-weight: bold;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 2rem;
+  max-width: 120px;
   margin-top: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
