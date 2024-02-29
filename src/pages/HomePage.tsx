@@ -82,11 +82,15 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   transition: opacity 300ms ease-in-out;
   text-align: center;
   padding: 1rem;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const Title = styled.h4`
@@ -94,6 +98,7 @@ const Title = styled.h4`
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
 `;
 
 const Description = styled.p`

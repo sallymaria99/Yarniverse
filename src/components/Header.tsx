@@ -6,6 +6,7 @@ function Header() {
     <>
       <StyledHeader>
         <Title>
+          <img src="/assets/yarnImg.png" alt="" />
           <NavLink to={"/"}>Yarniverse</NavLink>
         </Title>
         <Navigation>
