@@ -192,4 +192,8 @@ const StyledButton = styled.button<StyledButtonProps>`
       /* transform-origin: left; */
     }
   }
+
+  @media (max-width: 600px) {
+    font-size: small;
+  }
 `;
