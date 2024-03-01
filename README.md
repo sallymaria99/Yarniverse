@@ -10,7 +10,7 @@ Använd **Projekt** för att få en överblick över dina projekt, oavsett statu
 
 Du kan enkelt prova hemsidan här; [Yarniverse](yarniverse.netlify.app/)
 
-Tack
+Tack för visat intresse!
 
 ## Installation
 
