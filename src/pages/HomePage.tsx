@@ -121,6 +121,10 @@ const MainTitle = styled.div`
   font-weight: 550;
   padding-top: 3rem;
   color: #243d24;
+
+  @media (max-width: 768px) {
+    padding-top: 5.5rem;
+  }
 `;
 
 const Subtitle = styled.div`
@@ -137,4 +141,9 @@ const CardGrid = styled.div`
   width: 100%;
   max-width: 64rem;
   margin-bottom: 2.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding-top: 3rem;
+  }
 `;

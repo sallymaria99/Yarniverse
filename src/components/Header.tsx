@@ -39,6 +39,14 @@ const StyledHeader = styled.header`
   padding: 1rem;
   height: 3rem;
   font-family: "Quicksand", sans-serif;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 0.2rem;
+    padding-bottom: 1rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -52,10 +60,18 @@ const Title = styled.h1`
   margin-right: 12px;
   color: #235347;
   font-weight: 700;
+
+  @media (max-width: 600px) {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const Navigation = styled.nav`
   flex-grow: 1;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const NavList = styled.ul`
@@ -106,4 +122,8 @@ const LogoImage = styled.img`
   height: 36px;
   width: auto;
   margin-right: 10px;
+
+  @media (max-width: 600px) {
+    margin-right: 0;
+  }
 `;
