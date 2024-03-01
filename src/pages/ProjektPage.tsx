@@ -194,6 +194,6 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 
   @media (max-width: 600px) {
-    font-size: small;
+    font-size: xx-small;
   }
 `;
