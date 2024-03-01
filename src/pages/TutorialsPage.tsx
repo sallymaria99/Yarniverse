@@ -50,6 +50,10 @@ const SearchBar = styled.input.attrs({
   margin: 0 1rem;
   border: 1px solid black;
   border-radius: 4px;
+
+  @media (max-width: 700px) {
+    max-width: 100px;
+  }
 `;
 
 const VideosGrid = styled.div`
