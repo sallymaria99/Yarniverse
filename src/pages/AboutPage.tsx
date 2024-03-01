@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import RandomQuote from "../components/QuoteGarden";
 import { Title } from "../styles/SharedStyles";
 
@@ -6,10 +7,18 @@ function AboutPage() {
     <div>
       <Title>Kontakt</Title>
       <p></p>
-      <h1>A random quote to Cheer you up :D</h1>
+      <Text>
+        Även denna sida är under uppbyggnad, men så länge kan du njuta av lite
+        härliga quotes. Refresha sidan om du vill byta quote!
+      </Text>
       <RandomQuote />
     </div>
   );
 }
 
 export default AboutPage;
+
+const Text = styled.h1`
+  padding: 1rem;
+  text-align: center;
+`;
