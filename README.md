@@ -10,6 +10,8 @@ Använd **Projekt** för att få en överblick över dina projekt, oavsett statu
 
 Du kan enkelt prova hemsidan här; [Yarniverse](yarniverse.netlify.app/)
 
+Tack
+
 ## Installation
 
 Skriv följande i Projektets terminal för att starta igång projektet
@@ -21,6 +23,8 @@ npm install
 ## Features
 
 #### Dagbok
+
+#### Kontakt
 
 #### Inspirationssida för mönster
 
