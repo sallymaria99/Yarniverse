@@ -20,7 +20,7 @@ Skriv följande i Projektets terminal för att starta igång projektet
 npm install
 ```
 
-## Features
+## Coming
 
 #### Dagbok
 
